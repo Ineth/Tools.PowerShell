@@ -52,3 +52,6 @@ Temporary Items
 *.flf
 *.dll
 *.exe
+
+# Thomas
+*.ignore.*
