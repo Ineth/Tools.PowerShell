@@ -1,0 +1,3 @@
+﻿function Move-UpOneFolder() {
+    cd ..
+}

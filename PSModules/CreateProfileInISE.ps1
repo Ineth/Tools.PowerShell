@@ -1,5 +1,6 @@
 ﻿param($profilePath = $profile.AllUsersCurrentHost)
 
+Write-Host "Adding settings to $profilePath" -ForegroundColor Green
 if (!(test-path $profilePath)) {
     new-item -type file -path $profilePath -force
 } Else {
@@ -13,16 +14,17 @@ if (!(test-path $profilePath)) {
 
 
 $code = '
-function prompt{
-    $Currentlocation = (Get-Location).Path
-    if ($Currentlocation.Length -le 15) {
-        "$($Currentlocation)>>"
-    } else {
-        #$Currentlocation.Substring(0,3) + ".." + $Currentlocation.Substring($Currentlocation.lastIndexOf(''\''),$Currentlocation.Length - $Currentlocation.lastIndexOf(''\'')) + ">>"        
-        "$($Currentlocation)
-PS >"
-    }   
-}
+# disabled for posh-git use
+#function prompt{
+#    $Currentlocation = (Get-Location).Path
+#    if ($Currentlocation.Length -le 15) {
+#        "$($Currentlocation)>>"
+#    } else {
+#        #$Currentlocation.Substring(0,3) + ".." + $Currentlocation.Substring($Currentlocation.lastIndexOf(''\''),$Currentlocation.Length - $Currentlocation.lastIndexOf(''\'')) + ">>"        
+#        "$($Currentlocation)
+#PS >"
+#    }   
+#}
 
 if (-not($psise)) {
     break
@@ -65,4 +67,4 @@ $psISE.CurrentPowerShellTab.AddOnsMenu.Submenus.Add(''Force import PowerShell To
 
 Add-Content -Value $code -Path $profilePath
 
-psEdit $profilePath -ErrorAction SilentlyContinue
+# psEdit $profilePath -ErrorAction SilentlyContinue
