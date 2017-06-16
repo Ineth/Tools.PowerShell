@@ -1,11 +1,5 @@
 Set-ExecutionPolicy Bypass
 
-#Install PowerShell Tools
-. (Join-Path $PSscriptRoot './aliases.ps1')
-. ('./../../PSModules/CreateProfileInISE.ps1')
-. ('./../../PSModules/InstallModule.ps1')
-
-
 # Install chocolatey
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -26,7 +20,8 @@ choco install slack -y
 # Dev Tools
 choco install poshgit -y
 choco install visualstudiocode -y
-choco install sourcetree -y
+#choco install sourcetree -y
+choco install gitkraken -y
 choco install git.install -y
 choco install ilspy -y
 choco install git-credential-manager-for-windows -y
@@ -35,7 +30,18 @@ choco install git-credential-manager-for-windows -y
 choco install nodejs.install -y
 choco install nunit.install -y
 choco install mysql.workbench -y
-choco install mysql-connector
+choco install mysql-connector -y
 choco install resharper-platform -y
 choco install linqpad -y
 
+## Local setup
+
+# Clone git repo first
+
+# Install PowerShell Tools
+. (Join-Path $PSscriptRoot './autoloadModules.ps1')
+. (Join-Path $PSscriptRoot './aliases.ps1')
+. ('./../../PSModules/InstallModule.ps1')
+
+# Install PowerShell ISE profile
+. ('./../../PSModules/CreateProfileInISE.ps1')
