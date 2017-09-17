@@ -16,5 +16,6 @@ if (!(test-path $profilePath)) {
 $code = '
 set-alias g git
 set-alias .. Move-UpOneFolder
+set-alias gg Move-ToGitFolder
 '
 Add-Content -Value $code -Path $profilePath
