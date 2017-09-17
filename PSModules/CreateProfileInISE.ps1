@@ -1,4 +1,4 @@
-﻿param($profilePath = $profile.AllUsersCurrentHost)
+﻿param($profilePath = $profile)
 
 Write-Host "Adding settings to $profilePath" -ForegroundColor Green
 if (!(test-path $profilePath)) {

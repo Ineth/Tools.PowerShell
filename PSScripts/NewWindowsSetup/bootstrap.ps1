@@ -44,4 +44,4 @@ choco install linqpad -y
 . ('./../../PSModules/InstallModule.ps1')
 
 # Install PowerShell ISE profile
-. ('./../../PSModules/CreateProfileInISE.ps1')
+Write-Host "Execute following script in ISE: " (Join-Path $PSscriptRoot './../../PSModules/CreateProfileInISE.ps1') -ForegroundColor Green

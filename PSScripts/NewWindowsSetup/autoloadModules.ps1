@@ -1,4 +1,4 @@
-param($profilePath = $profile.AllUsersCurrentHost)
+param($profilePath = $profile.CurrentUserAllHosts)
 
 Write-Host "Adding aliases to $profilePath" -ForegroundColor Green
 if (!(test-path $profilePath)) {
