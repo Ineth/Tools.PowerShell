@@ -1,6 +1,6 @@
 param($profilePath = $profile.CurrentUserAllHosts)
 
-Write-Host "Adding aliases to $profilePath" -ForegroundColor Green
+Write-Host "Adding Module load to $profilePath" -ForegroundColor Green
 if (!(test-path $profilePath)) {
     new-item -type file -path $profilePath -force
     Add-Content -Value '### Auto-load modules ###' -Path $profilePath
