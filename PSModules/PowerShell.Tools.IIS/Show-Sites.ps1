@@ -1,10 +1,10 @@
-function List-Sites () {
+function Show-Sites () {
     Get-WebBinding | % {
         $name = $_.ItemXPath -replace '(?:.*?)name=''([^'']*)(?:.*)', '$1'
         New-Object psobject -Property @{
-            Name = $name
+            Name    = $name
             Binding = $_.bindinginformation.Split(":")[-1]
         }
     } | Group-Object -Property Name | 
-    Format-Table Name, @{n="Bindings";e={$_.Group.Binding -join "`n"}} -Wrap
+        Format-Table Name, @{n = "Bindings"; e = {$_.Group.Binding -join "`n"}} -Wrap
 }
